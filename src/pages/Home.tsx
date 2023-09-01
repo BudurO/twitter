@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Imgtwitter from '../assets/imgtwitter.jpg'
 import React from "react";
 import axios from "axios";
+import Side from "../components/Side";
 
 type Iposttwitter ={
 post : string;
@@ -57,8 +58,12 @@ className="h-full w-screen flex flex-row"
 </div>
 </div>
 
-
+<div className='flex justify-end ml-32'>
+<Side/>
 </div>
+</div>
+
+
     </>
   )
 }
