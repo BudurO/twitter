@@ -4,7 +4,7 @@ function Side() {
   return (
     <>
     {/* 350 */}
-    <div className='flex flex-col mr-14'>
+    <div className='flex flex-col mr-14 ml-10'>
     <div className="pt-2 relative mx-auto text-gray-600 w-[350px]">
         <input className=" bg-[#EFF3F4] h-12 px-12 pr-16 rounded-full text-sm focus:outline-none w-full"
           type="search" name="search" placeholder="Search"/>
