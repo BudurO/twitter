@@ -1,23 +1,26 @@
 import React from 'react'
+import {useParams } from "react-router-dom"
 import Side from '../components/Side'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
-
 type twitterpost={
     post:string,
     id:string
 }
-function Profile() {
-
-    const [Postes, setPostes] = React.useState<twitterpost[]>([])
+function Content() {
+  const [Postes, setPostes] = React.useState<twitterpost[]>([])
 React.useEffect(()=>{
     axios.get("https://64ee3d821f87218271427022.mockapi.io/twitterpost")
     .then((res)=>{
         setPostes(res.data)
     })
 },[])
+    const {id} =useParams()
+    
+    if (id=="likes"){
   return (
-    <div>
+    <>
+        <div>
         <div className=' flex '>
             <div className=' flex justify-start'>
                 <Navbar/>
@@ -40,7 +43,7 @@ React.useEffect(()=>{
                 <div className=' h-56'>
                     <div className=' h-52 bg-[#CFD9DD] mt-0 '>
                         <div className='m-0'>
-                            <img className=' ml-10 w-32 h-32   border-solid border-white border-4 rounded-full' src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" alt="" />
+                            <img className=' ml-10 mb-10 w-32 h-32  border-solid border-white border-4 rounded-full' src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" alt="" />
                         </div>
                     </div>
                     <div className='flex justify-end mt-3 mr-3'>
@@ -74,7 +77,7 @@ React.useEffect(()=>{
                         className=" flex justify-between  list-none flex-row flex-nowrap border-b-0 pl-0 mb-1"
                         role="tablist"
                         data-te-nav-ref>
-                        <li role="presentation" className=" w-28 h-14 hover:bg-slate-300 borber border-b-4 border-sky-500 rounded-b-sm flex justify-center items-center">
+                        <li role="presentation" className=" w-28 h-14 hover:bg-slate-300 flex justify-center items-center">
                             <a
                             href="/profile/"
                             className=" text-black font-semibold text-sm"
@@ -102,7 +105,7 @@ React.useEffect(()=>{
                             role="tab"
                             aria-selected="false">Media</a>
                         </li>
-                        <li role="presentation" className=" w-28 h-14 hover:bg-slate-300 flex justify-center items-center">
+                        <li role="presentation" className=" w-28 h-14 hover:bg-slate-300 borber border-b-4 border-sky-500 rounded-b-sm flex justify-center items-center">
                             <a
                             href="/profile/likes"
                             className=" text-black font-semibold text-sm"
@@ -111,14 +114,11 @@ React.useEffect(()=>{
                         </li>
                         </ul>
                     </div>
-                    <div>
                     {Postes.map((item)=>{
                         return(
-                            <h1 key={item.id}>{item.post}</h1>
+                            <h1>hi</h1>
                         )
                     })}
-                    </div>
-                    
                     
                 </div>
             </div>
@@ -127,9 +127,9 @@ React.useEffect(()=>{
             </div>
         </div>
     </div>
+    </>
   )
-  
-
+}
 }
 
-export default Profile
+export default Content
