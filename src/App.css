@@ -1,0 +1,13 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.button-twitter-post{
+  background-color: #1d9bf0;
+}
+.box-post-twitter{
+  margin-left: -70px !important;
+  border: 1px solid wheat;
+  width: 50vw;
+  height: 15vh;
+}

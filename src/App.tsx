@@ -5,6 +5,9 @@ import Content from './components/Content'
 
 import Profile from './pages/Profile'
 
+
+import './App.css'
+import Home from './pages/Home'
 function App() {
 
   return (
