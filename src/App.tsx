@@ -1,13 +1,18 @@
 
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Side from './components/Side'
-import Home from './pages/Home'
+import Content from './components/Content'
+
+import Profile from './pages/Profile'
 
 function App() {
 
   return (
     <>
-      <Home/>
+    <Routes>
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/profile/:id' element={<Content/>}/>
+    </Routes>
     </>
   )
 }
