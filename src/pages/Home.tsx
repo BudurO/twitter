@@ -27,7 +27,8 @@ const Mypos = () =>{
     })
     .then((res) =>{
         console.log(res);
-        setMytwitter([posttwitter,...Mytwitter])
+        setMytwitter([res.data,...Mytwitter])
+
     })
 
 };
@@ -38,6 +39,7 @@ React.useEffect(()=>{
 .then((res) =>{
     setMytwitter(res.data.reverse()),
     console.log(res);
+
 }
 )
 
@@ -45,11 +47,11 @@ React.useEffect(()=>{
 
 ,[])
 
-const deletePost = (id: string) =>{
+const deletePost = (id: string | undefined) =>{
     axios.delete(`https://64ee3d821f87218271427022.mockapi.io/twitterpost/${id}`)
     .then(()=>{
     setMytwitter(
-        Mytwitter.map((deleteMytwitter) => {
+        Mytwitter.filter((deleteMytwitter) => {
                 return deleteMytwitter.id !== id;
             })
         );
